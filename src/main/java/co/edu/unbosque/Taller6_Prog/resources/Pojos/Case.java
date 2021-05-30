@@ -6,6 +6,11 @@ public class Case {
     private String type;
     private String descrip;
     private int id;
+    private int pet_id;
+
+    public Case() {
+
+    }
 
     public Case(String create_at, String type, String descrip, int id) {
         this.create_at = create_at;

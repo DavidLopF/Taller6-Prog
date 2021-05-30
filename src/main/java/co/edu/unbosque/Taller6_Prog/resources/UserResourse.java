@@ -5,6 +5,7 @@ import co.edu.unbosque.Taller6_Prog.resources.Pojos.User;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path("/user")
 public class UserResourse {
