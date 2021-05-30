@@ -12,11 +12,12 @@ public class Case {
 
     }
 
-    public Case(String create_at, String type, String descrip, int id) {
+    public Case(String create_at, String type, String descrip, int id, int pet_id) {
         this.create_at = create_at;
         this.type = type;
         this.descrip = descrip;
         this.id = id;
+        this.pet_id = pet_id;
     }
 
     public String getCreate_at() {
@@ -49,5 +50,13 @@ public class Case {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getPet_id() {
+        return pet_id;
+    }
+
+    public void setPet_id(int pet_id) {
+        this.pet_id = pet_id;
     }
 }
