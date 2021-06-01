@@ -16,9 +16,8 @@ public class PetsResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(@PathParam("owner_id") Integer ownerId, @QueryParam("querryParam") @DefaultValue("123") long microship, Pet pet) {
+    public Response create(@PathParam("owner_id") Integer ownerId,Pet pet) {
         pet.setPet_id(3);
-        pet.setMicrochip(microship);
         pet.setOwner_id(ownerId);
         pet.setName("Perro");
         pet.setSex("Macho");
