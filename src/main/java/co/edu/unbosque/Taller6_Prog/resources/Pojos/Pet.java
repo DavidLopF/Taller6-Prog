@@ -10,12 +10,11 @@ public class Pet {
     private String race;
     private String size;
     private String sex;
-    private String picture;
+    private Picture picture;
     private Integer owner_id;
 
     public Pet(){
     }
-
     public Pet(Integer pet_id, long microchip, String name, String species, String race, String size, String sex, Integer owner_id) {
         this.pet_id = pet_id;
         this.microchip = microchip;
@@ -25,21 +24,16 @@ public class Pet {
         this.size = size;
         this.sex = sex;
         this.owner_id = owner_id;
+        picture = null;
     }
 
-    public Pet(Integer pet_id, long microchip, String name, String species, String race, String size, String sex, Integer owner_id, String picture) {
-        this.pet_id = pet_id;
-        this.microchip = microchip;
-        this.name = name;
-        this.species = species;
-        this.race = race;
-        this.size = size;
-        this.sex = sex;
+    public Picture getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Picture picture) {
         this.picture = picture;
-        this.owner_id = owner_id;
     }
-
-
 
 
     public Integer getPet_id() {
@@ -98,13 +92,9 @@ public class Pet {
         this.sex = sex;
     }
 
-    public String getPicture() {
-        return picture;
-    }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
+
+
 
     public Integer getOwner_id() {
         return owner_id;

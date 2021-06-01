@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 
-@Path("/owners/{filter}/filters/{value}")
+@Path("/owners")
 public class OwnersResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -24,7 +24,7 @@ public class OwnersResource {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response filter(@PathParam("filter") String filtro, @PathParam("value") String value) {
+    public Response filter(@QueryParam("filter") String filtro, @QueryParam("value") String value) {
         ArrayList<Owner> owners = new ArrayList<>();
         ArrayList<Owner> result = new ArrayList<>();
 
