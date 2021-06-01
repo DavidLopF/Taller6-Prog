@@ -1,11 +1,14 @@
 package co.edu.unbosque.Taller6_Prog.resources.Pojos;
 
+import java.util.ArrayList;
+
 public class Owner {
     private String username;
     private Integer person_id;
     private String name;
     private String address;
     private String neighborhood;
+    private ArrayList<Pet> pets;
 
 
     public Owner(){
@@ -17,8 +20,20 @@ public class Owner {
         this.name = name;
         this.address = address;
         this.neighborhood = neighborhood;
+        pets = new ArrayList<>();
     }
 
+    public void addPet(Pet e){
+        pets.add(e);
+    }
+
+    public ArrayList<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(ArrayList<Pet> pets) {
+        this.pets = pets;
+    }
 
     public String getUsername() {
         return username;
