@@ -24,5 +24,16 @@ public class PetsResource {
                 .entity(pet)
                 .build();
     }
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response uploadPicture(@PathParam("owner_id") Integer ownerId,Pet pet) {
+        String ruta = ownerId+".png";
+        pet.setPicture(ruta);
+        return Response.status(Response.Status.CREATED)
+                .entity(pet)
+                .build();
+    }
+
 
 }
