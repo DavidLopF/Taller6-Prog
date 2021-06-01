@@ -10,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@Path("/owners/{owner_id}/pets/{filtro}/{valor}")
+@Path("/owners/{owner_id}/pets")
 public class PetsResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(@PathParam("owner_id") Integer ownerId, @QueryParam("querryParam") @DefaultValue("123") long microship, Pet pet) {
+    public Response create(@PathParam("owner_id") Integer ownerId, @QueryParam("microchip") @DefaultValue("123") long microchip, Pet pet) {
         pet.setPet_id(3);
-        pet.setMicrochip(microship);
+        pet.setMicrochip(microchip);
         pet.setOwner_id(ownerId);
         pet.setName("Perro");
         pet.setSex("Macho");
@@ -31,20 +31,20 @@ public class PetsResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response list(@PathParam("filtro") int filtro, @PathParam("owner_id") int owner_id, @PathParam("valor") String valor) {
+    public Response list(@PathParam("owner_id") int owner_id, @QueryParam("valor") String valor, @QueryParam("filtro") int filtro) {
 
         List<Pet> mascotas = new ArrayList<Pet>();
         Random rnd = new Random();
         String[] size = {"grande", "pequeño", "mediano", "muy grande"};
         String[] specie = {"perro", "gato"};
         String[] sex = {"femenino", "masculino"};
-        String[] names = {"copito", "galleta", "", "aslan", "sergio", "danger", "masacre", "stan", "json"};
+        String[] names = {"copito", "galleta", "tayson", "aslan", "sergio", "danger", "masacre", "stan", "json"};
 
         for (int i = 0; i < 20; i++) {
             int id = rnd.nextInt(10000);
             if (i % 2 == 0) {
                 mascotas.add(new Pet(id,
-                        rnd.nextLong(), "pet" + i, specie[rnd.nextInt(specie.length)], "pet_race",
+                        1234567891, "pet" + i, specie[rnd.nextInt(specie.length)], "pet_race",
                         size[rnd.nextInt(size.length)], sex[rnd.nextInt(sex.length)], rnd.nextInt(11), "Images/" + id + ".png"));
             } else {
                 mascotas.add(new Pet(id,
@@ -54,19 +54,19 @@ public class PetsResource {
         }
         List<Pet> petsFiltradas = new ArrayList();
         for (Pet pet : mascotas) {
-            if (pet.getOwner_id().equals(owner_id) && filtro == 0 ) {
+            if (pet.getOwner_id().equals(owner_id) && filtro == 0) {
                 petsFiltradas.add(pet);
-            } else if ( filtro == 1) {
-                if(pet.getMicrochip() == Long.parseLong(valor)){
+            } else if (filtro == 1) {
+                if (pet.getMicrochip() == Long.parseLong(valor)) {
                     petsFiltradas.add(pet);
                 }
-            } else if (pet.getName().equals(valor) && filtro == 2 ) {
+            } else if (pet.getName().equals(valor) && filtro == 2) {
                 petsFiltradas.add(pet);
-            } else if (pet.getSpecies().equals(valor) && filtro == 3 ) {
+            } else if (pet.getSpecies().equals(valor) && filtro == 3) {
                 petsFiltradas.add(pet);
-            } else if (pet.getRace().equals(valor) && filtro == 4 ) {
+            } else if (pet.getRace().equals(valor) && filtro == 4) {
                 petsFiltradas.add(pet);
-            } else if (pet.getSize().equals(valor) && filtro == 5 ) {
+            } else if (pet.getSize().equals(valor) && filtro == 5) {
                 petsFiltradas.add(pet);
             } else if (pet.getSex().equals(valor) && filtro == 6) {
                 petsFiltradas.add(pet);
@@ -74,8 +74,6 @@ public class PetsResource {
         }
         return Response.ok().entity(petsFiltradas).build();
     }
-
-
 
 
 }
