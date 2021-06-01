@@ -1,5 +1,6 @@
 package co.edu.unbosque.Taller6_Prog.resources;
 
+import co.edu.unbosque.Taller6_Prog.resources.Pojos.Owner;
 import co.edu.unbosque.Taller6_Prog.resources.Pojos.Pet;
 
 import javax.ws.rs.*;
@@ -8,6 +9,7 @@ import javax.ws.rs.core.Response;
 
 @Path("/owners/{owner_id}/pets/{pet_id}")
 public class PetResource {
+
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     public Response modify(@PathParam("owner_id") Integer ownerId, @PathParam("pet_id") Integer petId, Pet pet) {
@@ -21,6 +23,7 @@ public class PetResource {
         return Response.ok()
                 .entity(pet)
                 .build();
+
     }
 
 

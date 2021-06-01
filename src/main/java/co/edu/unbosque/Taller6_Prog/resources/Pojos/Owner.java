@@ -3,6 +3,7 @@ package co.edu.unbosque.Taller6_Prog.resources.Pojos;
 import java.util.ArrayList;
 
 public class Owner {
+
     private String username;
     private Integer person_id;
     private String name;
