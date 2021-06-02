@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Path("/allOwners")
-public class allOwners {
+public class allOwnersResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response create() {
@@ -37,7 +37,7 @@ public class allOwners {
         int count = 0;
         for (Owner owner : owners) {
             if (owner.getNeighborhood().equals(name)) {
-                count = allPets.getCount(listOwners, name, discriminateOwnersPets, count);
+                count = allPetsResource.getCount(listOwners, name, discriminateOwnersPets, count);
             }
         }
     }

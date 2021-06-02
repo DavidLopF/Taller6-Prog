@@ -15,7 +15,7 @@ import java.util.Random;
 
 @Path("/allPets")
 
-public class allPets {
+public class allPetsResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response create() {

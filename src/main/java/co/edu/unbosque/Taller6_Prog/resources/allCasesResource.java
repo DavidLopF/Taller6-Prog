@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 @Path("/allCases")
-public class allCases {
+public class allCasesResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response create() {
@@ -38,7 +38,7 @@ public class allCases {
         int count = 0;
         for (Case caso : cases) {
             if (caso.getType().equals(name)) {
-                count = allPets.getCount(listOwners, name, discriminateOwnersPets, count);
+                count = allPetsResource.getCount(listOwners, name, discriminateOwnersPets, count);
             }
         }
     }
