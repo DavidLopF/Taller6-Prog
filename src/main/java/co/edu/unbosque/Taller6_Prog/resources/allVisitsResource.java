@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 @Path("/allVisits")
-public class allVisits {
+public class allVisitsResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response create() {
@@ -52,7 +52,7 @@ public class allVisits {
         int count = 0;
         for (Visit visit : visits) {
             if (visit.getType().equals(name)) {
-                count = allPets.getCount(listOwners, name, discriminateOwnersPets, count);
+                count = allPetsResource.getCount(listOwners, name, discriminateOwnersPets, count);
             }
         }
 
@@ -62,7 +62,7 @@ public class allVisits {
         int count = 0;
         for (Vet vet : visitByVet) {
             if (vet.getName().equals(name)) {
-                count = allPets.getCount(listOwners, name, discriminateOwnersPets, count);
+                count = allPetsResource.getCount(listOwners, name, discriminateOwnersPets, count);
             }
         }
     }

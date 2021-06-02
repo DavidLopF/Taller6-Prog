@@ -24,7 +24,6 @@ public class CaseResource {
         caso.setId(rnd.nextInt(10000));
 
 
-
         return Response.status(Response.Status.CREATED)
                 .entity(caso)
                 .build();
