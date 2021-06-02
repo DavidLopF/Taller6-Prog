@@ -15,6 +15,17 @@ public class Pet {
 
     public Pet(){
     }
+
+
+    public Pet(String species, String race, String size, String sex,long microchip) {
+        this.species = species;
+        this.race = race;
+        this.size = size;
+        this.sex = sex;
+        this.microchip = microchip;
+    }
+
+
     public Pet(Integer pet_id, long microchip, String name, String species, String race, String size, String sex, Integer owner_id) {
         this.pet_id = pet_id;
         this.microchip = microchip;

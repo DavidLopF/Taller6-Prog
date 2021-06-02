@@ -19,6 +19,16 @@ public class PetsResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
 
+    public Response create(@PathParam("owner_id") Integer ownerId, @QueryParam("microchip") @DefaultValue("123") long microchip, Pet pet) {
+        pet.setPet_id(3);
+        pet.setMicrochip(microchip);
+        pet.setOwner_id(ownerId);
+        pet.setName("Perro");
+        pet.setSex("Macho");
+        pet.setSize("Pequenio");
+        pet.setSpecies("maltes");
+
+
     public Response create(@PathParam("owner_id") Integer ownerId,Pet pet) {
         pet.setPet_id(3);
         return Response.status(Response.Status.CREATED)
