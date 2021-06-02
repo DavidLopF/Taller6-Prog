@@ -17,6 +17,10 @@ public class Vet {
         this.neighborhood = neighborhood;
     }
 
+    public Vet(String name) {
+        this.name = name;
+    }
+
     public String getUsername() {
         return username;
     }

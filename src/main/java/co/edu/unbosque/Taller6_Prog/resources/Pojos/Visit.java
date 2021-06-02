@@ -24,6 +24,10 @@ public class Visit {
     public Visit() {
     }
 
+    public Visit(String type) {
+        this.type = type;
+    }
+
     public int getVisit_id() {
         return visit_id;
     }

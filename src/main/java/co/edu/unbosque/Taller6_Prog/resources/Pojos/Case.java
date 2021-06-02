@@ -12,6 +12,10 @@ public class Case {
 
     }
 
+    public Case(String type) {
+        this.type = type;
+    }
+
     public Case(String create_at, String type, String descrip, int id, int pet_id) {
         this.create_at = create_at;
         this.type = type;
