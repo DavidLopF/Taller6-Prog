@@ -18,25 +18,25 @@ public class PetsResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-
-
-    public Response create(@PathParam("owner_id") Integer ownerId,Pet pet) {
+    public Response create(@PathParam("owner_id") Integer ownerId, Pet pet) {
         pet.setPet_id(3);
+        pet.setOwner_id(ownerId);
         return Response.status(Response.Status.CREATED)
                 .entity(pet)
                 .build();
     }
+
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response uploadPicture(@PathParam("owner_id") Integer ownerId, Picture p) {
         Pet pet = new Pet();
         pet.setOwner_id(ownerId);
-        pet.setName("Name by owner "+ownerId);
+        pet.setName("Name by owner " + ownerId);
         pet.setMicrochip(12355);
-        pet.setSpecies("Specie by owner "+ownerId);
-        pet.setSize("Size by owner "+ownerId);
-        pet.setRace("Race by owner "+ownerId);
+        pet.setSpecies("Specie by owner " + ownerId);
+        pet.setSize("Size by owner " + ownerId);
+        pet.setRace("Race by owner " + ownerId);
         pet.setPet_id(1);
         pet.setPicture(p);
         return Response.status(Response.Status.CREATED)
